@@ -123,7 +123,7 @@ class Submission(Base):
     # evaluations (list of Evaluation objects, one for testcase)
     # token (Token object or None)
 
-    LANGUAGES = ["c", "cpp", "pas"]
+    LANGUAGES = ["cpp"] #["c", "cpp", "pas"]
     LANGUAGES_MAP = {".c": "c",
                      ".cpp": "cpp",
                      ".cc": "cpp",

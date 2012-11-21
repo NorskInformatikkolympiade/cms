@@ -225,7 +225,7 @@ class YamlLoader:
             params["submission_format"] = [
                 SubmissionFormatElement("output_%03d.txt" %
                                         (i)).export_to_dict()
-                for i in xrange(int(conf["n_input"]))]
+                for i in xrange(int(conf["mportn_input"]))]
 
         # If there is cor/manager, then the task type is Communication
         elif os.path.exists(os.path.join(path, "cor", "manager")):
@@ -284,8 +284,8 @@ class YamlLoader:
                         input_digest,
                         "input_%03d.txt" % (i)).export_to_dict())
         params["token_initial"] = conf.get("token_initial", None)
-        params["token_max"] = conf.get("token_max", None)
-        params["token_total"] = conf.get("token_total", None)
+        params["token_max"] = conf.get("token_max", None) # max at any given time
+        params["token_total"] = conf.get("token_total", None) # max used in the course of the contest
         params["token_min_interval"] = conf.get("token_min_interval", 0)
         params["token_gen_time"] = conf.get("token_gen_time", 0)
         params["token_gen_number"] = conf.get("token_gen_number", 0)
@@ -311,7 +311,7 @@ class YamlLoader:
         else:
             logger.info("Generating %s random users." % self.user_number)
             for i in xrange(self.user_number):
-                params["users"].append(User("User %d" % (i),
+                params["users"].append(User("FirstName %d" % (i), "LastName %d" % (i),
                                             "user%03d" % (i)).export_to_dict())
         return params
 
