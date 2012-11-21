@@ -6,3 +6,9 @@ logs
 mo-box
 Configuration.py
 WebConfig.py
+box
+build
+cms.egg-info
+dist
+cms/server/mo
+
